@@ -1,0 +1,19 @@
+node_modules
+.DS_Store
+.DS_Store?
+._*
+
+/tmp
+/node_modules
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+.idea
+/.idea
+.idea/UI-X.iml
+*.lnk
+dist/
