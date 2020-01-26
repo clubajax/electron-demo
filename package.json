@@ -9,6 +9,11 @@
   "scripts": {
     "start": "electron ."
   },
+  "dependencies": {
+    "@clubajax/dom": "^2.8.5",
+    "@clubajax/on": "^2.2.0",
+    "form": "clubajax/form#master"
+  },
   "devDependencies": {
     "electron": "^7.1.10",
     "electron-builder": "^22.3.2"
