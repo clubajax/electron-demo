@@ -1,12 +1,9 @@
 const {ipcRenderer} = require('electron');
 const dom = require('@clubajax/dom');
-const on = require('@clubajax/on');
 const form = require('form');
 
-console.log('form', form);
 
 ipcRenderer.on('response-files', (event, data) => {
-    console.log('GOT files', data);
     renderFiles(data);
 });
 ipcRenderer.send('request-files', {});
@@ -31,6 +28,17 @@ function getIcon(file) {
     const ext = file.name.split('.')[1];
     return icons[ext] || 'file'
 }
+
+function getItem(path, data) {
+    if (path === data.parentDir) {
+        return {
+            type: 'dir',
+            path
+        };
+    }
+    return data.files.find(item => item.path === path);
+}
+
 let list;
 function renderFiles(data) {
     const parent = dom.byId('files-container');
@@ -52,7 +60,11 @@ function renderFiles(data) {
         }))]
     }, parent);
     list.on('change', (e) => {
-        console.log('click', e.value);
-        ipcRenderer.send('request-files', {currentDir: e.value});
+        const item = getItem(e.value, data);
+        if (item.type === 'dir') {
+            ipcRenderer.send('request-files', {currentDir: e.value});
+        } else {
+            ipcRenderer.send('open-file', {path: e.value});
+        }
     });
 }

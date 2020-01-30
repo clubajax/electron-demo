@@ -5,6 +5,7 @@ const {
 } = require('electron');
 const path = require('path');
 const {getFiles} = require('./app/files');
+require('./app/fileWin');
 
 let window;
 
@@ -27,7 +28,6 @@ function createWindow() {
 ipcMain.on('request-files', (event, {currentDir = __dirname}) => {
     const parentDir = path.resolve(currentDir, '..');
     const files = getFiles(currentDir);
-    console.log('files', files);
     const result = {
         currentDir,
         parentDir,

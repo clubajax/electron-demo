@@ -11,8 +11,6 @@ function writeFiles(files) {
             count++;
         }
     });
-
-    console.log(`Updated ${count} files`);
 }
 
 function readPages(ROOT) {
@@ -77,7 +75,6 @@ function getFiles(dir) {
         fs.readdirSync(dir).forEach((fileName) => {
             if (fileName.indexOf('.') !== 0) {
                 const filePath = path.join(dir, fileName);
-                console.log('   file:', fileName, 'dir:', fs.lstatSync(filePath).isDirectory());
                     files.push({
                         type: fs.lstatSync(filePath).isDirectory() ? 'dir' : 'file',
                         name: fileName,
@@ -90,7 +87,12 @@ function getFiles(dir) {
     return 'invalid directory';
 }
 
+function getFile(filePath) {
+    return fs.readFileSync(filePath).toString();
+}
+
 module.exports = {
+    getFile,
     getFiles,
     readPages,
     writeFiles

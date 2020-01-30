@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Electron App</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="./node_modules/form/build/form.css" /> -->
+    <link rel="stylesheet" href="../src/style.css" />
+</head>
+
+<body class="file-viewer">
+    <h1>File Viewer</h1>
+    <section id="file-wrapper">
+        <div id="file-content"></div>
+    </section>
+</body>
+<script>
+    const {ipcRenderer} = require('electron');
+    const dom = require('@clubajax/dom');
+    ipcRenderer.on('file-data', (event, {data}) => {
+        dom.byId('file-content').textContent = data;
+    });
+</script>
+</html>
