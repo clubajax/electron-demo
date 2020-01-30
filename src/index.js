@@ -3,10 +3,7 @@ const dom = require('@clubajax/dom');
 const on = require('@clubajax/on');
 const form = require('form');
 
-console.log('form', form);
-
 ipcRenderer.on('response-files', (event, data) => {
-    console.log('GOT files', data);
     renderFiles(data);
 });
 ipcRenderer.send('request-files', {});
@@ -52,7 +49,6 @@ function renderFiles(data) {
         }))]
     }, parent);
     list.on('change', (e) => {
-        console.log('click', e.value);
         ipcRenderer.send('request-files', {currentDir: e.value});
     });
 }

@@ -27,7 +27,6 @@ function createWindow() {
 ipcMain.on('request-files', (event, {currentDir = __dirname}) => {
     const parentDir = path.resolve(currentDir, '..');
     const files = getFiles(currentDir);
-    console.log('files', files);
     const result = {
         currentDir,
         parentDir,
