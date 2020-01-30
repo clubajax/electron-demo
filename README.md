@@ -14,6 +14,7 @@ This branch uses different files, to demonstrate how to build an application for
 Moves the js and css into an external file
 
 ### page-3
+Adds web components and demonstrates a file picker
 
 ### file-open-1
 Shows how to open a second window and render file data
