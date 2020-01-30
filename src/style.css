@@ -9,9 +9,26 @@ body {
     font-family: sans-serif;
 }
 
-section{
+section {
     width: 300px;
-    border: 1px solid red;
-    background-color: rgb(252, 252, 229);
+    border: 1px solid #ccc;
     padding: 20px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px;
+    font-size: 14px;
+    background-color: rgb(169, 242, 255);
+    border: 1px solid rgb(65, 133, 150);
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(212, 249, 255);
+}
+
+ui-list li ui-icon{
+    width: 30px;
 }

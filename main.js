@@ -1,8 +1,16 @@
-const {app, BrowserWindow} = require('electron');
+const {
+    app,
+    ipcMain,
+    BrowserWindow
+} = require('electron');
+const path = require('path');
+const {getFiles} = require('./app/files');
+
+let window;
 
 function createWindow() {
     // Create the browser window.
-    let win = new BrowserWindow({
+    window = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
@@ -11,9 +19,21 @@ function createWindow() {
     });
 
     // and load the index.html of the app.
-    win.loadFile('index.html');
+    window.loadFile('index.html');
 
-    // win.webContents.openDevTools();
+    window.webContents.openDevTools();
 }
+
+ipcMain.on('request-files', (event, {currentDir = __dirname}) => {
+    const parentDir = path.resolve(currentDir, '..');
+    const files = getFiles(currentDir);
+    console.log('files', files);
+    const result = {
+        currentDir,
+        parentDir,
+        files
+    };
+    window.webContents.send('response-files', result);
+});
 
 app.on('ready', createWindow);

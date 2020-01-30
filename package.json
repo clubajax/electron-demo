@@ -7,7 +7,7 @@
   "author": "anm9tr@gmail.com",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start": "ELECTRON_DISABLE_SECURITY_WARNINGS=true electron ."
   },
   "dependencies": {
     "@clubajax/dom": "^2.8.5",

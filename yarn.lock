@@ -836,7 +836,7 @@ findup-sync@~0.3.0:
 
 form@clubajax/form#master:
   version "0.5.1"
-  resolved "https://codeload.github.com/clubajax/form/tar.gz/d8ce7684552d10dbcc4e7ab1f8eeab370449e8e6"
+  resolved "https://codeload.github.com/clubajax/form/tar.gz/f8ea9d03361371bccc92d4b707ffcbaf2c623f96"
   dependencies:
     "@clubajax/base-component" "2.3.2"
     "@clubajax/dom" "2.8.5"
