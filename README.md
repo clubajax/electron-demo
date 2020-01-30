@@ -11,6 +11,7 @@ Shows how to do the basic development setup for Electron
 This branch uses different files, to demonstrate how to build an application for distribution, using [electron-builder](https://www.electron.build/)
 
 ### page-2
+Moves the js and css into an external file
 
 ### page-3
 
