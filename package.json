@@ -12,6 +12,7 @@
   "dependencies": {
     "@clubajax/dom": "^2.8.5",
     "@clubajax/on": "^2.2.0",
+    "electron-store": "^5.1.0",
     "form": "clubajax/form#master"
   },
   "devDependencies": {
