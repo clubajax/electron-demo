@@ -86,8 +86,17 @@ function getFiles(dir) {
     }
     return 'invalid directory';
 }
+function getFilesizeInBytes(filePath) {
+    const fileSizeInBytes = fs.statSync(filePath).size;
+    return fileSizeInBytes / 1000000.0; // megabytes
+}
 
 function getFile(filePath) {
+    const size = getFilesizeInBytes(filePath);
+    console.log('size', size);
+    if (size > 1) {
+        return `File size ${Math.round(size)}MB is too large to open`;
+    }
     return fs.readFileSync(filePath).toString();
 }
 
