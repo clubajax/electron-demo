@@ -22,3 +22,7 @@ Shows how to open a second window and render file data
 ### file-open-2 TODO
 This (will) shows how to reuse an existing window
 Also add FILE TOO LARGE message
+
+### effects-1
+Add transparency to the main window
+Add draggable
