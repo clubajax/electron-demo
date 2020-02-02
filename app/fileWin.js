@@ -5,32 +5,41 @@ const {
 const {getFile} = require('./files');
 const storage = require('./storage');
 
+let window;
+let loaded = false;
 function createWindow() {
-    const x = storage.get('win-x', 10);
-    const y = storage.get('win-y', 10);
-    window = new BrowserWindow({
-        width: 600,
-        height: 800,
-        x,
-        y,
-        webPreferences: {
-            nodeIntegration: true
+    return new Promise((success) => {
+        if (loaded) {
+            success();
+            return;
         }
-    });
+        const x = storage.get('win-x', 10);
+        const y = storage.get('win-y', 10);
+        window = new BrowserWindow({
+            width: 600,
+            height: 800,
+            x,
+            y,
+            webPreferences: {
+                nodeIntegration: true
+            }
+        });
 
-    // and load the index.html of the app.
-    window.loadFile('./app/fileViewer.html');
+        window.loadFile('./app/fileViewer.html');
+        window.on('close', () => {
+            window = null;
+            loaded = false;
+        });
 
-    window.on("moved", () => {
-        const pos = window.getPosition();
-        storage.set('win-x', pos[0]);
-        storage.set('win-y', pos[1]);
+        window.webContents.on("did-finish-load", () => {
+            loaded = true;
+            success();
+        });
     });
 }
 
 ipcMain.on('open-file', (event, data) => {
-    createWindow();
-    window.webContents.on("did-finish-load", () => {
+    createWindow().then(() => {
         const txt = getFile(data.path);
         window.webContents.send('file-data', {data: txt});
     });

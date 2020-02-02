@@ -33,7 +33,7 @@ function createWindow() {
         storage.set('main-y', pos[1]);
     });
 
-    window.webContents.openDevTools();
+    // window.webContents.openDevTools();
 }
 
 ipcMain.on('request-files', (event, {currentDir = __dirname}) => {
