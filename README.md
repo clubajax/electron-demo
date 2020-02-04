@@ -19,10 +19,14 @@ Adds web components and demonstrates a file picker
 ### file-open-1
 Shows how to open a second window and render file data
 
-### file-open-2 TODO
+### file-open-2
+storage for window position
+
+### file-open-3
 This (will) shows how to reuse an existing window
 Also add FILE TOO LARGE message
 
 ### effects-1
 Add transparency to the main window
 Add draggable
+title in title bar
