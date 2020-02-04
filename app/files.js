@@ -91,9 +91,12 @@ function getFilesizeInBytes(filePath) {
     return fileSizeInBytes / 1000000.0; // megabytes
 }
 
+function getFileName(filePath) {
+    return filePath.split(path.sep).pop();
+}
+
 function getFile(filePath) {
     const size = getFilesizeInBytes(filePath);
-    console.log('size', size);
     if (size > 1) {
         return `File size ${Math.round(size)}MB is too large to open`;
     }
@@ -102,6 +105,7 @@ function getFile(filePath) {
 
 module.exports = {
     getFile,
+    getFileName,
     getFiles,
     readPages,
     writeFiles

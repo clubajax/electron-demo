@@ -34,18 +34,22 @@ ui-list li ui-icon{
     width: 30px;
 }
 
-body.file-viewer{
+body{
     padding: 0;
     margin: 0;
 }
 
-.file-viewer h1{
+h1{
     background-color: #eee;
     font-size: 14px;
     text-align: center;
     margin: 0;
     padding: 5px;
+    user-select: none;
+    cursor: -webkit-grab;
+        -webkit-app-region: drag;
 }
+
 #file-wrapper{
     width: 100%;
     height: auto;

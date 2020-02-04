@@ -2,7 +2,7 @@ const {
     ipcMain,
     BrowserWindow
 } = require('electron');
-const {getFile} = require('./files');
+const {getFile, getFileName} = require('./files');
 const storage = require('./storage');
 
 let window;
@@ -38,9 +38,10 @@ function createWindow() {
     });
 }
 
-ipcMain.on('open-file', (event, data) => {
+ipcMain.on('open-file', (event, {path}) => {
     createWindow().then(() => {
-        const txt = getFile(data.path);
+        const txt = getFile(path);
+        window.setTitle(getFileName(path));
         window.webContents.send('file-data', {data: txt});
     });
 });

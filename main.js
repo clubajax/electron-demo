@@ -15,10 +15,13 @@ function createWindow() {
     const x = storage.get('main-x', 10);
     const y = storage.get('main-y', 10);
     window = new BrowserWindow({
-        width: 800,
+        width: 400,
         height: 600,
         x,
         y,
+        frame: false,
+        transparent: true,
+        titleBarStyle: 'hiddenInset',
         webPreferences: {
             nodeIntegration: true
         }
