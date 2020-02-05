@@ -7,8 +7,8 @@ Multiple branches show steps on how to build an [Electron](https://www.electronj
 ### base-1
 Shows how to do the basic development setup for Electron
 
-### build-3
-This branch uses different files, to demonstrate how to build an application for distribution, using [electron-builder](https://www.electron.build/)
+### build-page-2
+This branch demonstrates how to build an application for distribution, using [electron-builder](https://www.electron.build/)
 
 ### page-2
 Moves the js and css into an external file
@@ -23,10 +23,10 @@ Shows how to open a second window and render file data
 storage for window position
 
 ### file-open-3
-This (will) shows how to reuse an existing window
-Also add FILE TOO LARGE message
+How to reuse an existing window
+Adds "file too large" message
 
 ### effects-1
 Add transparency to the main window
 Add draggable
-title in title bar
+Title in title bar
