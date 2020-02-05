@@ -2,12 +2,13 @@
   "name": "electron-demo",
   "version": "1.0.0",
   "description": "How to build an Electron app",
-  "main": "main.js",
+  "main": "./src/main/index.js",
   "repository": "https://github.com/clubajax/electron-demo.git",
   "author": "anm9tr@gmail.com",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "devDependencies": {
     "electron": "^7.1.10",
